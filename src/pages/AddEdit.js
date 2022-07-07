@@ -21,7 +21,7 @@ const AddEdit = () => {
         alert("fill required area")
     }else {
 
-        axios.post("https://www.cleardb.com/database/details?id=1356659EE814432EA13F111B39E92812/api/post", {
+        axios.post("http://localhost:5000/api/post", {
          
             name,
             email,
