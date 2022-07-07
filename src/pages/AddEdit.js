@@ -21,7 +21,7 @@ const AddEdit = () => {
         alert("fill required area")
     }else {
 
-        axios.post("https://react-mysql-project.herokuapp.com/api/post", {
+        axios.post("eu-cdbr-west-03.cleardb.net/api/post", {
          
             name,
             email,
