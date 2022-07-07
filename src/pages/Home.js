@@ -8,7 +8,7 @@ const Home = () => {
 const [data, setData] = useState([]);
 
 const loadData = async () => {
-    const response = await axios.get("http://localhost:5000/api/get");
+    const response = await axios.get("https://react-mysql-project.herokuapp.com/api/get");
     setData(response.data)
 };
 
