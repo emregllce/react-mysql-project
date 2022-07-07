@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useHistory, useParams, Link} from "react-router-dom"
+import { useHistory, useParams, Link, useNavigate} from "react-router-dom"
 import axios from 'axios'
 
 const initialState = {
@@ -12,18 +12,27 @@ const AddEdit = () => {
 
  const [state, setstate] = useState(initialState);  
  const {name, email, contact} =state;
+ const navigate = useNavigate()
 
  const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post("http://localhost:5000/api/post", {
-        name,
-        email,
-        contact
-    }).then(()=>{
-        setstate({name:"", email:"", contact:""})
-    }).catch((err) => console.log(err.response.data))
+    if (!name || !email || !contact) {
+
+        alert("fill required area")
+    }else {
+
+        axios.post("http://localhost:5000/api/post", {
+         
+            name,
+            email,
+            contact
+        }).then(()=>{
+            setstate({name:"", email:"", contact:""});
+        }).catch((err) => console.log(err.response.data))
+        navigate("/")
+    }
     
- }
+ };
 
  const handleInputChange = (e) => {
     const  {name, value} = e.target
@@ -41,13 +50,13 @@ const AddEdit = () => {
             onSubmit = {handleSubmit}>
 
             <label>Name</label><br/>
-            <input required type="text" id='name' name="name" onChange={handleInputChange} value={name}/>
+            <input  type="text" id='name' name="name" onChange={handleInputChange} value={name}/>
             <br/>
             <label>Email</label><br/>
-            <input required type="email" id='email' name="email" onChange={handleInputChange} value={email}/>
+            <input  type="email" id='email' name="email" onChange={handleInputChange} value={email}/>
             <br/>
             <label>Contact</label><br/>
-            <input required type="number" id='contact' name="contact" onChange={handleInputChange} value = {contact}/>
+            <input  type="number" id='contact' name="contact" onChange={handleInputChange} value = {contact}/>
             <br/><br/><br/>
             <input type="submit" value="save" />
 

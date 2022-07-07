@@ -26,9 +26,10 @@ useEffect(() => {
         <Link to = "/addContact">
         <button>Add New</button>
         </Link>
-       {data?.map((item, index) =>{
+       {data.map((item) =>{
         return(
             <div key = {item.id}>
+                <h2>{item.id}</h2>
                 <h2>{item.name}</h2>
                 <p>{item.email}</p>
                 <h2>{item.contact}</h2>
