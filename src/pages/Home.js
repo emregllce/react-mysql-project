@@ -8,12 +8,12 @@ const Home = () => {
 const [data, setData] = useState([]);
 
 const loadData = async () => {
-    const response = await axios.get("http://localhost:5000/api/get");
+    const response = await axios.get("https://zxcapp.herokuapp.com/api/get");
     setData(response.data)
 };
 
 const deleteContact = (id) => {
-    axios.delete(`http://localhost:5000/api/remove/${id}`)
+    axios.delete(`https://zxcapp.herokuapp.com/api/remove/${id}`)
     loadData()
 }
 

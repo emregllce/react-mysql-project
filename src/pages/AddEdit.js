@@ -21,7 +21,7 @@ const AddEdit = () => {
         alert("fill required area")
     }else {
 
-        axios.post("http://localhost:5000/api/post", {
+        axios.post("https://zxcapp.herokuapp.com/api/post", {
          
             name,
             email,
